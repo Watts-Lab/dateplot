@@ -14,7 +14,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="git@github.com:Watts-Lab/dateplot.git",
-    py_modules=["app", "dateplot"],
+    py_modules=["app.util", "dateplot"],
     install_requires=[requirements],
     python_requires='>=3.8',
     classifiers=[
