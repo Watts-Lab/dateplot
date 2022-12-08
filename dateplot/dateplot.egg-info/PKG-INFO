@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: dateplot
+Version: 0.0.9
+Summary: "A simple tool to visualize an arbitrary list of dates"
+Home-page: "git@github.com:Watts-Lab/dateplot.git"
+Author: "Coën D. Needell"
+Author-email: "coeneedell@gmail.com"
+License: MIT
+Platform: any
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# DatePlot
+
+This is a tool that will quickly create a temporal density plot from a list of dates. By default it takes the wayback format, but an arbitrary `date`-like format can be used.

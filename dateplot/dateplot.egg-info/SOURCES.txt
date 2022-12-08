@@ -1,0 +1,11 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+app/dateplot.egg-info/PKG-INFO
+app/dateplot.egg-info/SOURCES.txt
+app/dateplot.egg-info/dependency_links.txt
+app/dateplot.egg-info/entry_points.txt
+app/dateplot.egg-info/not-zip-safe
+app/dateplot.egg-info/requires.txt
+app/dateplot.egg-info/top_level.txt
