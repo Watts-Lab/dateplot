@@ -34,6 +34,7 @@ def plot(infile, fmt, resolution, outfile):
     ax.hist(dateobjs, color='#990000', bins=bins)
     ax.xaxis.set_major_locator(label_resolution_dict[tick_res]())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m-%d'))
+    plt.xticks(rotation=45)
     if outfile:
         plt.savefig(outfile.buffer)
 

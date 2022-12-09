@@ -22,6 +22,9 @@ def xform(s, fmt=WAYBACK_FORMAT):
     if extracted_string:
         return datetime.strptime(extracted_string, fmt)
     else:
+        print(f"datestring {s} does not appear to contain a date in "
+              "format {fmt}, please check your input data, "
+              "this datestring will be dropped!")
         return None
 
 
