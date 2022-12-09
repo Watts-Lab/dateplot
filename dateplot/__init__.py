@@ -31,7 +31,6 @@ def plot(infile, fmt, resolution, outfile):
     bins = util.bins(dateobjs.iloc[0], dateobjs.iloc[-1], resolution)
 
     fig, ax = plt.subplots(1, 1, figsize=(11, 8.5))
-    print(bins, file=sys.stderr)
     ax.hist(dateobjs, color='#990000', bins=bins)
     ax.xaxis.set_major_locator(label_resolution_dict[tick_res]())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m-%d'))
