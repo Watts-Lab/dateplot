@@ -14,11 +14,26 @@ def plot(infile, fmt, resolution, outfile):
     worker = partial(util.xform, fmt=fmt)
     dateobjs = rawstrings.apply(worker).sort_values()
 
+    priority_order = ["hours", "days", "weeks", "months", "years", "years"]
+    label_resolution_dict = {
+        "years": mdates.YearLocator,
+        "days": mdates.DayLocator,
+        "weeks": mdates.MonthLocator,
+        "months": mdates.MonthLocator,
+        "hours": mdates.HourLocator
+    }
+    tick_res = priority_order[priority_order.index(resolution)]
+    label_ticks = util.bins(dateobjs.iloc[0], dateobjs.iloc[-1], tick_res)
+    while label_ticks > 50:
+        tick_res = priority_order[priority_order.index(resolution) + 1]
+        label_ticks = util.bins(dateobjs.iloc[0], dateobjs.iloc[-1], tick_res)
+
     bins = util.bins(dateobjs.iloc[0], dateobjs.iloc[-1], resolution)
 
     fig, ax = plt.subplots(1, 1, figsize=(11, 8.5))
-    ax.hist(dateobjs, color='lightblue', bins=bins)
-    ax.xaxis.set_major_locator(mdates.YearLocator())
+    print(bins, file=sys.stderr)
+    ax.hist(dateobjs, color='#990000', bins=bins)
+    ax.xaxis.set_major_locator(label_resolution_dict[tick_res]())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%y-%m-%d'))
     if outfile:
         plt.savefig(outfile.buffer)
